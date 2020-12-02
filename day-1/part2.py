@@ -18,23 +18,33 @@ def readAllLines():
     return lines
 
 def main():
-    target = 2020
+    targetSum = 2020
     result = 0
 
     lines = readAllLines()
+    lines = sorted(lines)
     N = len(lines)
     
-    partSum = [[0 for _ in range(N)] for _ in range(N)]
-
     for i in range(N):
-        for j in range(i + 1, N):
-            for k in range(j + 1, N):
-                if (lines[i] + lines[j] + lines[k] == target):
-                    result = lines[i] * lines[j] * lines[k]
-                    break
 
-    sys.stdout.write(str(result) + '\n')
-    return result
+        l = i
+        r = N - 1
+        target = targetSum - lines[i]
+        # print('target', target)
+
+        while l <= r:
+
+            # print(lines[mid])
+            if lines[l] + lines[r] == target:
+                result = lines[l] * lines[i] * lines[r]
+                sys.stdout.write(str(result) + '\n')
+                return result
+            elif lines[l] + lines[r] > target:
+                r -= 1
+            else:
+                l += 1
+
+    return 0
 
 if __name__ == '__main__':
     main()
