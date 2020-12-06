@@ -9,7 +9,7 @@ def main():
   totalCount = 0
   currentGroupCount = set()
 
-  lines = readLines('input_test')
+  lines = readLines('input')
   for l in lines:
     
     if l == '':
