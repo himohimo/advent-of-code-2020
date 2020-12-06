@@ -37,17 +37,22 @@ def calcCol(inputStr):
 def main():
   import sys
 
-  maxSeatId = 0
+  seatList = []
 
   lines = readLines('input')
   for l in lines:
     row = calcRow(l[:7])
     col = calcCol(l[7:])
 
-    maxSeatId = max(maxSeatId, row * 8 + col)
+    seatList.append(row * 8 + col)
 
-  sys.stdout.write(str(maxSeatId) + '\n')
-  return maxSeatId
+  minSeatId, maxSeatId = min(seatList), max(seatList)
+
+  for val in range(minSeatId, maxSeatId):
+
+    if val not in seatList and val + 1 in seatList and val - 1 in seatList:
+      sys.stdout.write(str(val) + '\n')
+      return val
 
 if __name__ == '__main__':
   main()
