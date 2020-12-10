@@ -8,8 +8,8 @@
 | day 4 | X | X |
 | day 5 | X | X |
 | day 6 | X | X |
-| day 7 |  |  |
-| day 8 |  |  |
+| day 7 | X |  |
+| day 8 | X |  |
 | day 9 |  |  |
 | day 10 |  |  |
 | day 11 |  |  |
